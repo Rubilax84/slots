@@ -34,30 +34,6 @@ class FieldLine extends PIXI.Container {
         });
     }
 
-    public animate(): void {
-        this._tween = TweenMax.to(this, 0.4, {
-            y: 0, ease: Power0.easeNone,
-            onRepeat: () => {
-                this.rebuildLine();
-            },
-            onComplete: () => {
-                this.rebuildLine();
-                this.stop();
-            },
-            repeat: 4
-        });
-    }
-
-    public stop(): void {
-        TweenMax.to(this, 0.5, {
-            y: 0, ease: Power0.easeNone,
-            onComplete: () => {
-                console.log(this.y);
-                this.rebuildLine();
-            }
-        });
-    }
-
     public rebuildLine(value: string[] = null): void {
         let tmp: any = _.chunk(this._itemsList, 3).reverse();
         this.resetLineElements(tmp[0], value);
@@ -69,13 +45,5 @@ class FieldLine extends PIXI.Container {
 
     public getLinesOnField(): LineElement[] {
         return _.chunk(this._itemsList, 3)[0];
-    }
-
-    get lineID(): number {
-        return this._lineID;
-    }
-
-    set lineID(value: number) {
-        this._lineID = value;
     }
 }

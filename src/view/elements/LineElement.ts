@@ -4,7 +4,7 @@ class LineElement extends PIXI.Sprite {
         this.width = 175;
         this.height = 175;
 
-        this.texture = SharedConfig.itemTextureByID(Math.ceil(Math.random() * 10));
+        this.reset();
     }
 
     public reset(itemID: number = 0): void {

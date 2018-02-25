@@ -247,15 +247,6 @@ class Counter extends PIXI.Container {
         return this._value;
     }
 }
-class DisplayObject {
-    constructor(stage) {
-        this._view = new PIXI.Sprite();
-        this.stage = stage;
-    }
-    get view() {
-        return this._view;
-    }
-}
 class FieldLine extends PIXI.Container {
     constructor(lineID) {
         super();
@@ -284,28 +275,6 @@ class FieldLine extends PIXI.Container {
             element.reset(value ? parseInt(value[index]) : 0);
         });
     }
-    animate() {
-        this._tween = TweenMax.to(this, 0.4, {
-            y: 0, ease: Power0.easeNone,
-            onRepeat: () => {
-                this.rebuildLine();
-            },
-            onComplete: () => {
-                this.rebuildLine();
-                this.stop();
-            },
-            repeat: 4
-        });
-    }
-    stop() {
-        TweenMax.to(this, 0.5, {
-            y: 0, ease: Power0.easeNone,
-            onComplete: () => {
-                console.log(this.y);
-                this.rebuildLine();
-            }
-        });
-    }
     rebuildLine(value = null) {
         let tmp = _.chunk(this._itemsList, 3).reverse();
         this.resetLineElements(tmp[0], value);
@@ -315,12 +284,6 @@ class FieldLine extends PIXI.Container {
     }
     getLinesOnField() {
         return _.chunk(this._itemsList, 3)[0];
-    }
-    get lineID() {
-        return this._lineID;
-    }
-    set lineID(value) {
-        this._lineID = value;
     }
 }
 var GameFieldState;
@@ -444,7 +407,7 @@ class LineElement extends PIXI.Sprite {
         super();
         this.width = 175;
         this.height = 175;
-        this.texture = SharedConfig.itemTextureByID(Math.ceil(Math.random() * 10));
+        this.reset();
     }
     reset(itemID = 0) {
         this.texture = SharedConfig.itemTextureByID(itemID != 0 ? itemID : Math.ceil(Math.random() * 10));
