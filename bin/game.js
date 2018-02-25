@@ -367,12 +367,7 @@ class GameField extends PIXI.Container {
     initRewardState() {
         this.state = GameFieldState.SHOW_REWARDS_STATE;
         if (this.fieldData.winlines.length) {
-            SharedConfig.bellSound().play();
-            const timeLine = new TimelineMax({
-                onComplete: () => {
-                    this.setPendingSate();
-                }
-            });
+            const timeLine = new TimelineMax({ onComplete: () => this.setPendingSate() });
             this.fieldData.winlines.forEach((data) => {
                 const winData = data.split('~')[2];
                 const itemsOnFiled = this.getItemsList();
@@ -389,6 +384,9 @@ class GameField extends PIXI.Container {
                 }));
                 timeLine.add(TweenMax.to(list, 0.2, { alpha: 1, delay: 1.5 }));
             });
+        }
+        else {
+            this.setPendingSate();
         }
     }
     setPendingSate() {
