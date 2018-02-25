@@ -9,7 +9,7 @@ class MainPage {
         this.stage = stage;
     }
 
-    public init(): void {
+    public create(): void {
         // init background
         this.background = new Background(this.stage);
         this.stage.addChild(this.background);

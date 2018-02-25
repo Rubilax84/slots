@@ -41,7 +41,7 @@ class Game {
     }
 
     private onAssetsLoaded(data: any): void {
-        this.mainUI.init();
+        this.mainUI.create();
     }
 
     private render(): void {

@@ -19,26 +19,25 @@ class GameController {
 
     public startGame(event: ButtonEvent): void {
         if (!(this.gameField.state == GameFieldState.GAME_PENDING)) return;
+
         this.gameField.startGame();
         this.getFieldData(this.counter.value);
     }
 
     private getFieldData(bet: number): void {
-        fetch(this.dataUrl + '?action=bet&bet=' + bet,
-            {
-                method: 'get',
-                headers: {'Access-Control-Allow-Origin': '*'}
-            }).then(response => {
+        const requestURL: string = this.dataUrl + `?action=bet&bet=${bet}`;
+        const requestInit: any = {
+            method: 'get',
+            headers: {'Access-Control-Allow-Origin': '*'}
+        };
+
+        fetch(requestURL, requestInit
+        ).then(response => {
             return response.json();
         }).then(responseData => {
-            this.fieldData = responseData;
-
-            let tmp: any = String(this.fieldData.board).split(',');
-            this.fieldData.board = _.chunk(tmp, 3);
-
-            this.gameField.initCompleteAnimationState(this.fieldData);
+            this.onFieldDate(responseData);
         }).catch(error => {
-            this.fieldData = {
+            const testData: any = {
                 "bet": 10,
                 "win": 600,
                 "board": "7,8,6,2,8,10,8,10,8,6,4,8,3,8,3",
@@ -48,10 +47,14 @@ class GameController {
                 ]
             };
 
-            let tmp: any = String(this.fieldData.board).split(',');
-            this.fieldData.board = _.chunk(tmp, 3);
-
-            this.gameField.initCompleteAnimationState(this.fieldData);
+            this.onFieldDate(testData);
         });
+    }
+
+    private onFieldDate(data: any): void {
+        this.fieldData = data;
+        this.fieldData.board = _.chunk(String(this.fieldData.board).split(','), 3);
+
+        this.gameField.initCompleteAnimationState(this.fieldData);
     }
 }

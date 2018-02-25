@@ -23,7 +23,7 @@ class Game {
         PIXI.loader.add(SharedConfig.TEXTURES_ASSETS_LIST).load((data) => this.onAssetsLoaded(data));
     }
     onAssetsLoaded(data) {
-        this.mainUI.init();
+        this.mainUI.create();
     }
     render() {
         this.renderer.render(this.stage);
@@ -53,18 +53,17 @@ class GameController {
         this.getFieldData(this.counter.value);
     }
     getFieldData(bet) {
-        fetch(this.dataUrl + '?action=bet&bet=' + bet, {
+        const requestURL = this.dataUrl + `?action=bet&bet=${bet}`;
+        const requestInit = {
             method: 'get',
             headers: { 'Access-Control-Allow-Origin': '*' }
-        }).then(response => {
+        };
+        fetch(requestURL, requestInit).then(response => {
             return response.json();
         }).then(responseData => {
-            this.fieldData = responseData;
-            let tmp = String(this.fieldData.board).split(',');
-            this.fieldData.board = _.chunk(tmp, 3);
-            this.gameField.initCompleteAnimationState(this.fieldData);
+            this.onFieldDate(responseData);
         }).catch(error => {
-            this.fieldData = {
+            const testData = {
                 "bet": 10,
                 "win": 600,
                 "board": "7,8,6,2,8,10,8,10,8,6,4,8,3,8,3",
@@ -73,10 +72,13 @@ class GameController {
                     "17~600~1,4,8,11,13"
                 ]
             };
-            let tmp = String(this.fieldData.board).split(',');
-            this.fieldData.board = _.chunk(tmp, 3);
-            this.gameField.initCompleteAnimationState(this.fieldData);
+            this.onFieldDate(testData);
         });
+    }
+    onFieldDate(data) {
+        this.fieldData = data;
+        this.fieldData.board = _.chunk(String(this.fieldData.board).split(','), 3);
+        this.gameField.initCompleteAnimationState(this.fieldData);
     }
 }
 var Textures;
@@ -122,7 +124,7 @@ class MainPage {
     constructor(stage) {
         this.stage = stage;
     }
-    init() {
+    create() {
         this.background = new Background(this.stage);
         this.stage.addChild(this.background);
         this.gameField = new GameField();
