@@ -17,7 +17,7 @@ class GameField extends PIXI.Container {
     private _maskShape: PIXI.Graphics;
     private _lines: FieldLine[] = [];
     private tweens: any[] = [];
-
+    private blurFilter: PIXI.filters.BlurYFilter = new PIXI.filters.BlurYFilter(20, 10);
     private fieldData: FieldData;
     private animationSpeed: number = 0.3;
 
@@ -57,7 +57,7 @@ class GameField extends PIXI.Container {
 
         this._lines.forEach((element: FieldLine) => {
             element.rebuildLine();
-
+            element.filters = [this.blurFilter];
             this.tweens.push(TweenMax.to(element, this.animationSpeed, {
                 y: 0, ease: Power0.easeNone,
                 onRepeat: () => {
@@ -82,7 +82,7 @@ class GameField extends PIXI.Container {
             },
             onComplete: () => {
                 SharedConfig.reelStopSound().play();
-
+                line.filters = [];
                 if (TweenMax.getAllTweens().length == 0) {
                     this.initRewardState();
                 }

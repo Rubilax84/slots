@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9c42004-480a-4c25-a887-ebf6acf54e34" name="Default" comment="fixes">
+    <list default="true" id="f9c42004-480a-4c25-a887-ebf6acf54e34" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/bin/game.js" afterPath="$PROJECT_DIR$/bin/game.js" />
       <change beforePath="$PROJECT_DIR$/bin/game.js.map" afterPath="$PROJECT_DIR$/bin/game.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GameController.ts" afterPath="$PROJECT_DIR$/src/controller/GameController.ts" />
       <change beforePath="$PROJECT_DIR$/src/view/elements/GameField.ts" afterPath="$PROJECT_DIR$/src/view/elements/GameField.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,7 +19,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameController.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameController.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/GameController.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
@@ -30,11 +29,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameField.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameField.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/elements/GameField.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+            <state relative-caret-position="986">
+              <caret line="58" column="11" lean-forward="false" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Button.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/button/Button.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,7 +75,6 @@
         <option value="$PROJECT_DIR$/src/view/button/ButtonEvent.ts" />
         <option value="$PROJECT_DIR$/src/Main.ts" />
         <option value="$PROJECT_DIR$/src/view/MainUI.ts" />
-        <option value="$PROJECT_DIR$/src/view/button/Button.ts" />
         <option value="$PROJECT_DIR$/src/view/elements/Counter.ts" />
         <option value="$PROJECT_DIR$/bin/game.js.map" />
         <option value="$PROJECT_DIR$/bin/game.js" />
@@ -79,8 +87,9 @@
         <option value="$PROJECT_DIR$/src/Game.ts" />
         <option value="$PROJECT_DIR$/src/view/elements/FieldLine.ts" />
         <option value="$PROJECT_DIR$/src/view/elements/LineElement.ts" />
-        <option value="$PROJECT_DIR$/src/view/elements/GameField.ts" />
         <option value="$PROJECT_DIR$/src/controller/GameController.ts" />
+        <option value="$PROJECT_DIR$/src/view/elements/GameField.ts" />
+        <option value="$PROJECT_DIR$/src/view/button/Button.ts" />
       </list>
     </option>
   </component>
@@ -95,7 +104,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="55" />
-    <option name="width" value="884" />
+    <option name="width" value="787" />
     <option name="height" value="1087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -207,7 +216,7 @@
       <workItem from="1519477003830" duration="2121000" />
       <workItem from="1519545034525" duration="19475000" />
       <workItem from="1519574741617" duration="8916000" />
-      <workItem from="1519587508149" duration="4046000" />
+      <workItem from="1519587508149" duration="6063000" />
     </task>
     <task id="LOCAL-00001" summary="fixes">
       <created>1519579295230</created>
@@ -237,18 +246,25 @@
       <option name="project" value="LOCAL" />
       <updated>1519583277905</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixes">
+      <created>1519591567903</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1519591567903</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74178000" />
+    <option name="totallyTimeSpent" value="76195000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="0" width="884" height="1087" extended-state="0" />
+    <frame x="55" y="0" width="787" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40258342" sideWeight="0.39772728" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26515839" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26435247" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40258342" sideWeight="0.45931283" order="7" side_tool="true" content_ui="tabs" />
@@ -257,7 +273,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5780409" sideWeight="0.54068714" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39074275" sideWeight="0.54068714" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -376,6 +392,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -510,6 +527,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="1977" column="17" lean-forward="false" selection-start-line="1977" selection-start-column="17" selection-end-line="1977" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -553,14 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/button/Button.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/elements/Counter.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
@@ -585,18 +595,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/elements/GameField.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/GameController.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="37" column="54" lean-forward="false" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/button/Button.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/elements/GameField.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="11" lean-forward="false" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="11" />
           <folding />
         </state>
       </provider>
