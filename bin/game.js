@@ -354,7 +354,7 @@ class GameField extends PIXI.Container {
                     this.initRewardState();
                 }
             },
-            repeat: 2
+            repeat: 1
         });
     }
     initCompleteAnimationState(data) {
@@ -369,20 +369,13 @@ class GameField extends PIXI.Container {
         if (this.fieldData.winlines.length) {
             const timeLine = new TimelineMax({ onComplete: () => this.setPendingSate() });
             this.fieldData.winlines.forEach((data) => {
-                const winData = data.split('~')[2];
+                const winData = data.split('~')[2].split(',');
                 const itemsOnFiled = this.getItemsList();
                 let list = itemsOnFiled.filter((element, index) => {
-                    if (winData.indexOf(index.toString()) == -1) {
-                        return true;
-                    }
-                    return false;
+                    return (winData.indexOf(index.toString()) == -1);
                 });
-                timeLine.add(TweenMax.to(list, 0.6, {
-                    alpha: 0.4, onComplete: () => {
-                        SharedConfig.bellSound().play();
-                    }
-                }));
-                timeLine.add(TweenMax.to(list, 0.2, { alpha: 1, delay: 1.5 }));
+                timeLine.add(TweenMax.to(list, 0.8, { alpha: 0.3, onStart: () => SharedConfig.bellSound().play() }));
+                timeLine.add(TweenMax.to(list, 0.2, { alpha: 1, delay: 1.0 }));
             });
         }
         else {
