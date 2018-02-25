@@ -25,7 +25,7 @@ class GameController {
     }
 
     private getFieldData(bet: number): void {
-        const requestURL: string = this.dataUrl + `?action=bet&bet=${bet}`;
+        const requestURL: string = "https://cors-anywhere.herokuapp.com/" + this.dataUrl + `?action=bet&bet=${bet}`;
         const requestInit: any = {
             method: 'get',
             headers: {'Access-Control-Allow-Origin': '*'}
@@ -35,6 +35,7 @@ class GameController {
         ).then(response => {
             return response.json();
         }).then(responseData => {
+            console.log(JSON.stringify(responseData));
             this.onFieldDate(responseData);
         }).catch(error => {
             const testData: any = {

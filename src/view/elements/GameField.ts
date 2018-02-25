@@ -16,7 +16,6 @@ class GameField extends PIXI.Container {
 
     private _maskShape: PIXI.Graphics;
     private _lines: FieldLine[] = [];
-    private tween: any;
     private tweens: any[] = [];
 
     private fieldData: FieldData;
@@ -59,7 +58,7 @@ class GameField extends PIXI.Container {
         this._lines.forEach((element: FieldLine) => {
             element.rebuildLine();
 
-            this.tween = TweenMax.to(element, this.animationSpeed, {
+            this.tweens.push(TweenMax.to(element, this.animationSpeed, {
                 y: 0, ease: Power0.easeNone,
                 onRepeat: () => {
                     element.rebuildLine();
@@ -68,9 +67,7 @@ class GameField extends PIXI.Container {
                     this.startCompleteAnimation(element);
                 },
                 repeat: -1
-            });
-
-            this.tweens.push(this.tween);
+            }));
         });
     }
 
@@ -98,9 +95,9 @@ class GameField extends PIXI.Container {
         this.fieldData = data;
         this.state = GameFieldState.COMPLETING_SPIN;
 
-        this.tweens.forEach((tween: any, index: number) => {
-            tween.repeat(index * 2);
-        });
+        for (let i = 0; i < this.tweens.length; i++) {
+            this.tweens[i].repeat(5 + i);
+        }
     }
 
     private initRewardState(): void {

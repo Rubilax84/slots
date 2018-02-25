@@ -53,7 +53,7 @@ class GameController {
         this.getFieldData(this.counter.value);
     }
     getFieldData(bet) {
-        const requestURL = this.dataUrl + `?action=bet&bet=${bet}`;
+        const requestURL = "https://cors-anywhere.herokuapp.com/" + this.dataUrl + `?action=bet&bet=${bet}`;
         const requestInit = {
             method: 'get',
             headers: { 'Access-Control-Allow-Origin': '*' }
@@ -61,6 +61,7 @@ class GameController {
         fetch(requestURL, requestInit).then(response => {
             return response.json();
         }).then(responseData => {
+            console.log(JSON.stringify(responseData));
             this.onFieldDate(responseData);
         }).catch(error => {
             const testData = {
@@ -327,7 +328,7 @@ class GameField extends PIXI.Container {
         this.tweens = [];
         this._lines.forEach((element) => {
             element.rebuildLine();
-            this.tween = TweenMax.to(element, this.animationSpeed, {
+            this.tweens.push(TweenMax.to(element, this.animationSpeed, {
                 y: 0, ease: Power0.easeNone,
                 onRepeat: () => {
                     element.rebuildLine();
@@ -336,8 +337,7 @@ class GameField extends PIXI.Container {
                     this.startCompleteAnimation(element);
                 },
                 repeat: -1
-            });
-            this.tweens.push(this.tween);
+            }));
         });
     }
     startCompleteAnimation(line) {
@@ -360,9 +360,9 @@ class GameField extends PIXI.Container {
     initCompleteAnimationState(data) {
         this.fieldData = data;
         this.state = GameFieldState.COMPLETING_SPIN;
-        this.tweens.forEach((tween, index) => {
-            tween.repeat(index * 2);
-        });
+        for (let i = 0; i < this.tweens.length; i++) {
+            this.tweens[i].repeat(5 + i);
+        }
     }
     initRewardState() {
         this.state = GameFieldState.SHOW_REWARDS_STATE;
